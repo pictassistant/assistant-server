@@ -1,3 +1,5 @@
+const cheerio = require('cheerio')
+
 const SECRET_KEY = '310a7b2cd0e52dd19c9bbe4c78f1eb6778af88a67a5990969273711054584e037c3bee2f22ea5ebfe7cb6b3d151f54b87c0b232f5424fb54ebdf64f590e9e913' // this is SHA of mySuperPassword
 
 function passwordToSHAPasskey(plainPassword){
@@ -6,7 +8,7 @@ function passwordToSHAPasskey(plainPassword){
     return encryptedString
 }
 
-function login(regNumber, plainPassword){
+function getAttendanceOf(regNumber, plainPassword, dealWithAttendance){
     var request = require('request');
     var fs = require('fs')
     
@@ -24,21 +26,36 @@ function login(regNumber, plainPassword){
         if (err) {
             return console.error('upload failed:', err);
         }
-        fs.writeFile('data.json',JSON.stringify(httpResponse));
-        request
-            .get('http://pict.ethdigitalcampus.com/DCWeb/form/jsp_sms/StudentsPersonalFolder_pict.jsp?dashboard=1')
-            .on('response', function(response) {
-                console.log(response.statusCode) // 200
-                console.log(response.headers['content-type']) // 'image/png'
-            })
-            .pipe(fs.createWriteStream('look1.html'))  // Temp storing in look1.html
-
-            return {
-                data: 'Some Data',
-                done: true
+        request('http://pict.ethdigitalcampus.com/DCWeb/form/jsp_sms/StudentsPersonalFolder_pict.jsp?dashboard=1', function (error, response, body) {
+            if(error == null){
+                // console.log(body)
+                // console.log(response.statusCode) // 200
+                // console.log(response.headers['content-type']) // 'image/png'
+                dealWithAttendance(body)
             }
+            else{
+                console.log('Some Error loading data with credential')
+            }
+        });
     });
 }
 
+getAttendanceOf('C2K17207238','123456', function(html_content){
+    const $ = cheerio.load(html_content)
+    var faculty_urls = $('#table1 tbody tr.child')
+    for (let i = 0; i < faculty_urls.length; i++) {
+        const element = faculty_urls.next()
+        //console.log(element.html())
+        const html = cheerio.load('' + element.html())
+        // var faculty_urls = $('td a')
+        // var html = cheerio.load('<html>' + element.html() + '</html>')
+        console.log(html.text().trim())
 
-module.exports.login = login
+        // var all_td = html('td')
+        // console.log(all_td.length)
+        // console.log(all_td.next().text())
+    }
+    
+})
+
+module.exports.getAttendanceOf = getAttendanceOf
