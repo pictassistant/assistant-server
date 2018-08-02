@@ -1,0 +1,4 @@
+// For initializing admin use following code
+const admin = require('./src/init/firebase/init')
+
+// To populate faculty information run scripts under /src/scraping/populate

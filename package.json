@@ -1,0 +1,20 @@
+{
+  "name": "pictassistant2018",
+  "version": "1.0.0",
+  "description": "One App for doing all PICT related things and helping people do the common tasks with just taps and their voice by integratig the things to the Google Assistant.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "PICT",
+    "Assistant"
+  ],
+  "author": "Suryaa Jha",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "firebase-admin": "^5.13.1",
+    "request": "^2.87.0"
+  }
+}

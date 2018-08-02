@@ -1,0 +1,817 @@
+
+
+
+
+
+
+
+ 
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html dir="ltr">
+  <head>
+    <base href="http://pict.ethdigitalcampus.com:80/DCWeb/">
+    
+    <title>Digital Campus--> Administration--> Personal Details</title>
+    
+	<style>
+	h3
+	{
+	text-align: left;
+	font-size: 20;
+	}
+	span{
+	FONT-SIZE: 10pt; 
+	}
+	.parent{
+	cursor:pointer;
+	}
+	</style>
+ 
+ <link rel= "stylesheet" type= "text/css" href="/container/resources/stylesheet/s_ecube.css">
+ 
+ 
+ 
+ <script>
+	function openNewWindowFormat(url){
+	win=window.open(url,"win1","toolbar=no,top=20, left=30, directories=no,status=no,menubar=no,scrollbars=yes,width=900,height=700, resizable=yes")				
+	}
+	
+	function callFun(val){
+			 var absent = val;
+			 window.open("/DCWeb/form/jsp_sms/StudentAtt.jsp?enroll_no=C2K17207238&absent_month="+absent+""
+			,"popup","toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,width=700 , height=300,top=0,left=0 ");
+			}
+	function callMock(val1,val2,val3){
+			 window.open("/DCWeb/servlet/MockResult?enroll_no=C2K17207238&courseId="+val1+"&section_id="+val2+"&mock_exam_id="+val3+"","popup","toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,width=700 , height=300,top=0,left=0 ");
+			}
+				
+	function openRemarkWindow(url){
+			win=window.open(url,"win1","toolbar=no,top=20, left=30, directories=no,status=no,menubar=no,scrollbars=yes,width=900,height=700, resizable=yes")				
+			}
+					
+</script>
+
+
+
+<script type='text/javascript' src='http://pict.ethdigitalcampus.com:80/DCWeb//dwr/interface/NursingBean.js'></script>
+	<script type='text/javascript' src='http://pict.ethdigitalcampus.com:80/DCWeb//dwr/engine.js'></script>
+	<script type='text/javascript' src='http://pict.ethdigitalcampus.com:80/DCWeb//dwr/util.js'></script>
+	
+	
+	<script>
+	var enroll1="";
+	
+	function openNewWindow(str,acadeicYr){
+		win = window.open('/DCWeb/form/jsp_feesreport/StudentDateWiseFeeCollectionReport.jsp?portlet=feepayment&users='+str+'&Academic_select='+acadeicYr+'','win1','toolbar=no,top=20, left=30, directories=no,status=no,menubar=no,scrollbars=yes,width=900,height=700, resizable=yes');
+	}
+	
+	
+	function openNewWindowForParent(url){
+	win=window.open(url,"win1","toolbar=no,top=20, left=30, directories=no,status=no,menubar=no,scrollbars=yes,width=900,height=700, resizable=yes")				
+	}
+      
+			
+	function openNewWindow1(classs,acadeicYr){
+		win = window.open('/DCWeb/form/jsp_timetable/TimeTableLecWise.jsp?portlet=timetable&classs='+classs+'&flag=0&acadYearId='+acadeicYr+'','win1','toolbar=no,top=20, left=30, directories=no,status=no,menubar=no,scrollbars=yes,width=900,height=700, resizable=yes');
+	}
+	
+
+	function openNewWindow2(user,acadeicYr){
+		document.studentPersonalFolder.users.value=user;
+		document.studentPersonalFolder.Academic_select.value=acadeicYr;
+		
+		document.studentPersonalFolder.action = "/DCWeb/form/jsp_home/Index.jsp?portlet=ParentComplaint";
+		document.studentPersonalFolder.portlet.value="ParentComplaint";
+		document.studentPersonalFolder.submit();	
+	}		
+
+
+	function openNewWindow3(enroll,acadeicYr){
+		win = window.open('/DCWeb/form/jsp_parentportal/transportationDetails.jsp?portlet=transaction&enroll='+enroll+'&Academic_select='+acadeicYr+'','win1','toolbar=no,top=20, left=30, directories=no,status=no,menubar=no,scrollbars=yes,width=100%,height=700, resizable=yes');
+	}
+	
+
+	function openNewWindow4(loginId ){
+		win = window.open('#?loginid='+loginId+'','win1','toolbar=no,top=20, left=30, directories=no,status=no,menubar=no,scrollbars=yes,width=900,height=700, resizable=yes');
+	}
+	
+	function openNewWindow5(enroll,classId){
+    win = window.open('/DCWeb/form/jsp_parentportal/weeklyTestReport.jsp?enroll='+enroll+'&classId='+classId+'','win1','toolbar=no,top=20, left=30, directories=no,status=no,menubar=no,scrollbars=yes,width=900,height=700, resizable=yes');
+	}
+	function showMedicalHistory(enrollmentNo){
+	
+		enroll1 = enrollmentNo;
+		document.studentPersonalFolder.enrollment_no.value = enrollmentNo;
+		
+		//DWRUtil.useLoadingMessage();
+		NursingBean.getexistingEnrollmentNoForUpdate(_getexistingEnrollmentNo,enrollmentNo,'PICT'); //AJAX
+	
+	}//end of function showMedicalHistory
+/*
+		function uploadPhoto(studentId){  
+		 
+			var url = '/DCWeb/form/jsp_album/uploadStudentPhoto.jsp?studentId='+studentId+'';			
+			window.open(url,'win1','toolbar=no,top=20, left=30, directories=no,status=no,menubar=no,scrollbars=no, resizable=no,addressbar=no,height=200,width=350')
+		}	
+*/
+	function showEditProfile(enroll){
+		
+				win = window.open('/DCWeb/form/jsp_sms/editStudentInfoForParents.jsp?enroll='+enroll+'','win1','toolbar=no,top=20, left=30, directories=no,status=no,menubar=no,scrollbars=yes,width=900,height=700, resizable=yes');
+		
+		}
+		
+	function showStudentProfile(enroll){
+	
+		document.studentPersonalFolder.loginid.value=enroll;
+		document.studentPersonalFolder.action="/DCWeb/form/jsp_home/Index.jsp?portlet=good&searchFlag=true";
+		document.studentPersonalFolder.submit();
+	
+		}
+	
+	
+	function showEditHealth(enroll,information_date,nursingOpFlag){
+	
+		win = window.open('/DCWeb/form/jsp_sms/editStudentInfoForParents.jsp?enroll='+enroll+'','win1','toolbar=no,top=20, left=30, directories=no,status=no,menubar=no,scrollbars=yes,width=900,height=700, resizable=yes');
+	
+		}
+		
+	
+
+		
+	function _getexistingEnrollmentNo(booldata){		
+	
+		if(booldata){
+				
+			var enroll = document.studentPersonalFolder.enrollment_no.value; 
+		
+				var url =  "/DCWeb/form/jsp_nursing/MedicalHistoryReport.jsp?portlet=medicalHistroy&enrollment_no="+enroll;
+				window.open(url,'win1','toolbar=no,top=20, left=30, directories=no,status=no,menubar=yes,scrollbars=yes,width=900,height=700, resizable=yes')
+			
+		}else{
+			alert('Medical History for the selected student is not available.');     	
+     		return false;
+		}	
+		
+	}	
+	
+function showStudHealthDetails(enrollmentNo){
+	
+		enroll1 = enrollmentNo;
+		document.studentPersonalFolder.enrollment_no.value = enrollmentNo;
+			
+			DWRUtil.useLoadingMessage();
+		
+		NursingBean.getexistingEnrollmentNoForUpdate(_getHealthDetails,enrollmentNo,'PICT'); //AJAX
+	
+	}//end of function showStudHealthDetails
+
+
+	function _getHealthDetails(booldata){		
+	
+		if(booldata){
+			
+			var enroll = document.studentPersonalFolder.enrollment_no.value;
+				
+			var url =  "/DCWeb/form/jsp_nursing/StudentHealthMedicalReport.jsp?portlet=medicalHistroy&enrollment_no="+enroll;
+			window.open(url,'win1','toolbar=no,top=20, left=30, directories=no,status=no,menubar=yes,scrollbars=yes,width=900,height=700, resizable=yes')
+			
+		}else{
+			alert('No Records Found.');     	
+     		return false;
+		}	
+		
+	}	
+
+function goEditProfile(){
+document.formparent.action = "http://pict.ethdigitalcampus.com:80/DCWeb/servlet/ParentMaster?flag=1";
+}
+	function openParentPage(url){
+	
+		document.location=""+url;
+	
+		}
+	</script>
+
+  </head>
+  
+
+
+<body leftmargin="0" topmargin="0">	 
+
+
+
+ 
+
+
+
+
+ 		
+<form name="studentPersonalFolder" action="POST">
+	<input type='hidden' name='schoolFlag' value="">
+	<input type='hidden' name='searchFlag' value="">
+	<input type='hidden' name='studAcadId' value="null">
+	 <input type="hidden" name="enrollment_no" >
+	<input type="hidden" name="portlet"  value="">
+	<input type="hidden" name="users">
+  	<input type="hidden" name="Academic_select">
+   	<input type="hidden" name="loginid">
+  
+  
+  <input type="hidden" name="recordCount" value="1000">
+  <input type="hidden" name="maxRecords" value="15">
+  <input type="hidden" name="from" value="0"> 
+  <input type="hidden" name="currstandardId" value="null">
+  <input type="hidden" name="academicYear" value="">
+  <input type="hidden" name="section" value="">
+  <input type="hidden" name="dateFrom" value="01/06/2018">  
+  <input type="hidden" name="dateTo" value="25/07/2018">   
+  <input type="hidden" name="standardIdPre" value="0"> 
+  <input type="hidden" name="academicId" value="0">
+ 
+ 
+ 
+   	
+
+<table align="center" cellpadding="0" style="width:99%"  class="maintable" >
+<tr><td class="MTTD1" align="center">
+<b>Student Profile</b>
+</td></tr></table>
+
+<table border="0" align="center" cellpadding="0" style="width:101%;" class="maintable" id="table5">
+		<tr class="parent" title="Please Click Here To View The Content">
+		<td colspan="4" class="MTTD1" align="center"><b><u>Personal Details</u></b></td>
+		</tr>
+		<tr class="child">
+		<td align=left class = "MTTD2" colspan="1"><b>Enrollment  No.</b></td>
+		<td  class = "MTTD2" align=left colspan="2">C2K17207238</td>
+
+		<td class="MTTD8" rowspan="5" align="center"><img border=0 src="http://pict.ethdigitalcampus.com:80/container/school_data/PICT/photo/Student/C2K17207238.jpg" width=90 height=90></td>
+									
+</tr>
+<tr class="child">
+								
+					     	 <td align=left  class = "MTTD2" colspan="1"><b>Admission Date</b></td>
+							 <td  class = "MTTD2" align=left colspan="2">17-Aug-2017</td>
+						</tr>
+						 <tr class="child">
+						 	<td align=left  class = "MTTD2" colspan="1"><b>Admitted Class</b></td>
+							<td  class = "MTTD2" align=left colspan="2">SE COMP SEM 1</td>
+						</tr>
+						<tr class="child"><td align=left  class = "MTTD2" colspan="1"><b>Student Name</b></td>
+							<td  class = "MTTD2" align=left colspan="2">Shadab Majid Shaikh 
+							</td>
+						</tr>
+						<tr class="child"><td  class = "MTTD2" align=left colspan="1"><b>Gender</b></td>
+						
+					
+						<td  class = "MTTD2" align=left colspan="2"> Male</td> 
+						
+
+						</tr>
+					
+
+					
+					<tr class="child">
+						<td align=left  class = "MTTD2" colspan="1"><b>Date of Birth</b></td> 
+						<td class = "MTTD2" align=left colspan="1">10-Jun-1999</td> 
+						<td align=left  class = "MTTD2" colspan="1"><b>Age</b></td> 
+						<td class = "MTTD2" align=left colspan="1">
+						
+						
+						19 Year 1 Month 16 Days
+					  
+						
+						</td> 
+					</tr>
+					
+					<tr class="child"> 
+					<td align=left  class = "MTTD2" colspan="1" ><b>Religion</b></td>
+					<td class = "MTTD2" align=left colspan="1">
+						
+MUSLIM</td> 
+					<td class = "MTTD2" align=left colspan="1"><b>Nationality</b></td>
+					<td class = "MTTD2" align=left colspan="1">INDIAN</td> 
+					</tr> 
+					
+
+						 
+					
+					<tr class="child"> 
+					
+							<td colspan="1"  align=left  class="MTTD2" ><b>Grade</b></td>
+							<td colspan="1"  align=left class="MTTD2" >TE COMP SEM 1</td>
+							<td colspan="1"  align=left class="MTTD2" ><b>Division</b></td>
+							<td colspan="1"  align=left class="MTTD2" >III</td>
+							
+					
+					</tr> 
+					
+					<tr class="child">
+					<td align=left  class = "MTTD2"  align=left colspan="1"><b>Address</b></td>
+					
+					
+						<td class = "MTTD2"  align=left >AHER COMPLEX, S.NO. 2/15B, FLAT NO. 2, 'B' WING, FIRST FLOOR, NEAR LAST BUS STOP, DHANKAWADI, PUNE</td> 
+					
+					<td class = "MTTD2" align=left><b>Phone No. 1</b></td>
+					<td class = "MTTD2"  align=left >
+					020243783 </td>
+				    </tr> 
+				    
+					
+					
+					<tr class="child">
+						<td align=left  class = "MTTD2"  align=left colspan="1"><b> </b></td>
+						<td class = "MTTD2" align=left>-</td>
+						
+						<td align=left  class = "MTTD2"  align=left colspan="1"><b> </b></td>
+						<td class = "MTTD2" align=left>-</td>						
+					</tr>
+					
+					<tr class="child">
+						<td align=left  class = "MTTD2"  align=left colspan="1"><b>Passport No. </b></td>
+						<td class = "MTTD2" align=left>-</td>
+						
+						<td align=left  class = "MTTD2"  align=left colspan="1"><b>Valid upto Date </b></td>
+						<td class = "MTTD2" align=left>-</td>						
+					</tr>
+					
+					<tr class="child">
+						<td align=left  class = "MTTD2"  align=left colspan="1"><b>Visa Number </b></td>
+						<td class = "MTTD2" align=left>-</td>
+						
+						<td align=left  class = "MTTD2"  align=left colspan="1"><b>Visa Valid upto Date </b></td>
+						<td class = "MTTD2" align=left>-</td>						
+					</tr>
+					
+					<tr class="child">
+					
+					<td align=left  class = "MTTD2"  align=left colspan="1"><b>MOE Registration No. </b></td>
+					 
+					<td class = "MTTD2" align=left>-</td>
+					<td align=left  class = "MTTD2"  align=left colspan="1"><b>MOE Registration Date</b></td>
+					<td class = "MTTD2" align=left>-</td>
+					<td class = "MTTD2"  align=left >		</td>			
+					</tr> 
+					
+				   <tr class="child"> 
+						<td class = "MTTD2" align=left><b>School House Name</b></td>
+						<td class = "MTTD2"  align=left >
+						-</td> 
+						<td class = "MTTD2" align=left colspan="1"><b>Fee Category</b></td> 
+						<td class = "MTTD2"  align=left >
+							
+							AD 2016-17 OPEN
+							
+						</td> 
+					 </tr class="child"> 
+					  
+</table>  	
+<table border="0" align="center" cellpadding="0" style="width:100%;" class="maintable" id="table6">
+		<tr class="parent" title="Please Click Here To View The Content">
+		<td colspan="4" class="MTTD1" align="center"><b><u>Parent Information</u></b></td>
+		</tr>
+					
+
+					
+					<tr class="child">
+						<td colspan="1" class="MTTD2"  align=left ><b>Member Name /Id</b></td>
+
+						<td class = "MTTD2"  colspan="3"  align=left >MAJID IMAM SHAIKH IMAM SHAIKH
+					
+					<a href="JavaScript:openNewWindowForParent('http://pict.ethdigitalcampus.com:80/DCWeb/form/jsp_admission/MemberPersonelFolder.jsp?loginid=P12707&searchFlag=true&dashboard=1&portlet=1&parentfolder=false');">(P12707)</a></td> 
+					
+					
+					</tr>
+					
+					<tr class="child">
+						<td colspan="1" class="MTTD2"  align=left ><b>Job</b></td>
+
+						<td class = "MTTD2"  colspan="1"  align=left >COURIER</td> 
+					
+						<td colspan="1" class="MTTD2"  align=left ><b>Company</b></td>
+
+						<td class = "MTTD2"  colspan="1"  align=left >&nbsp;</td> 
+						
+					</tr>
+					
+					<tr class="child">
+						<td colspan="1" class="MTTD2"  align=left ><b>Home Phone no</b></td>
+
+						<td class = "MTTD2"  colspan="1"  align=left >&nbsp;</td> 
+						
+					
+					<td colspan="1" class="MTTD2"  align=left ><b>Mobile No.</b></td>
+
+						<td class = "MTTD2"  colspan="1"  align=left >9175924914</td> 
+					
+					</tr>
+					
+					<tr class="child">
+						<td colspan="1" class="MTTD2"  align=left ><b>Email Id</b></td>
+
+						<td class = "MTTD2"  colspan="1"  align=left >sshadabshaikh.ss319@gmail.com </td> 
+						
+					
+
+					</tr>
+
+
+</table>  	
+
+			
+</table>  	
+	
+			
+
+
+		
+   	
+		<tr >
+		<table border="0" align="center"  cellpadding="0" style="width:100%" class="maintable"  id="table1">
+			<tr class="parent" title="Please Click Here To View The Content" >
+				
+				
+				<td colspan="10" class="MTTD1" align="center"><b><u>Attendance Details</u></b></td>
+			</tr>
+			<tr class="child" > 
+			<td align=center   class="MTTD1" nowrap="nowrap" colspan= "3" >Subjects</td>
+			<td align=left  class=MTTD1 colspan= "3" >
+	   					<b>Total</b>
+	   		</td>
+	   		
+	   		<td align=left  class=MTTD1 colspan= "3" >
+	   					<b>Attended</b>
+	   		 </td>
+	   				
+	   		 <td align=left  class=MTTD1 colspan= "3"  >
+	   					<b> %</b>
+	   		 </td>
+			
+			<!--<td align=left  class="MTTD1" colspan= "3" nowrap="nowrap"><b>Average Attendace</b></td> -->
+			</tr> 
+			
+  			
+  		
+										<tr class="child">
+									<td align=left  class=MTTD8 colspan= "3">
+										 CE-SKILLS DEVELOPMENT LAB-PR
+									</td>
+									<td align=left  class=MTTD8 colspan= "3">
+										 12
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">
+										 12
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">							   
+										 100
+									</td>
+									</tr>				
+	   			
+										<tr class="child">
+									<td align=left  class=MTTD8 colspan= "3">
+										 CE-COMPUTER NETWORKS-TH
+									</td>
+									<td align=left  class=MTTD8 colspan= "3">
+										 23
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">
+										 20
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">							   
+										 86.96
+									</td>
+									</tr>				
+	   			
+										<tr class="child">
+									<td align=left  class=MTTD8 colspan= "3">
+										 CE-DATABASE MANAGEMENT SYSTEMS-TH
+									</td>
+									<td align=left  class=MTTD8 colspan= "3">
+										 13
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">
+										 7
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">							   
+										 53.85
+									</td>
+									</tr>				
+	   			
+										<tr class="child">
+									<td align=left  class=MTTD8 colspan= "3">
+										 CE-THEORY OF COMPUTAITON-TH
+									</td>
+									<td align=left  class=MTTD8 colspan= "3">
+										 20
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">
+										 19
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">							   
+										 95
+									</td>
+									</tr>				
+	   			
+										<tr class="child">
+									<td align=left  class=MTTD8 colspan= "3">
+										 CE-INFORMATION SYSTEMS AND ENGINEERING ECONOMICS-TH
+									</td>
+									<td align=left  class=MTTD8 colspan= "3">
+										 13
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">
+										 8
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">							   
+										 61.54
+									</td>
+									</tr>				
+	   			
+										<tr class="child">
+									<td align=left  class=MTTD8 colspan= "3">
+										 CE-SOFTWARE ENGINEERING & PROJECT MANAGEMENT-TH
+									</td>
+									<td align=left  class=MTTD8 colspan= "3">
+										 18
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">
+										 11
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">							   
+										 61.11
+									</td>
+									</tr>				
+	   			
+										<tr class="child">
+									<td align=left  class=MTTD8 colspan= "3">
+										 CE-CNL-PR
+									</td>
+									<td align=left  class=MTTD8 colspan= "3">
+										 6
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">
+										 6
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">							   
+										 100
+									</td>
+									</tr>				
+	   			
+										<tr class="child">
+									<td align=left  class=MTTD8 colspan= "3">
+										 CE-DBMSL-PR
+									</td>
+									<td align=left  class=MTTD8 colspan= "3">
+										 5
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">
+										 5
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">							   
+										 100
+									</td>
+									</tr>				
+	   			
+										<tr class="child">
+									<td align=left  class=MTTD8 colspan= "3">
+										 CE-SKILLS DEVELOPMENT-TUT
+									</td>
+									<td align=left  class=MTTD8 colspan= "3">
+										 3
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">
+										 3
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">							   
+										 100
+									</td>
+									</tr>				
+	   			
+										<tr class="child">
+									<td align=left  class=MTTD8 colspan= "3">
+										 CE-THEORY OF COMPUTATION-TH
+									</td>
+									<td align=left  class=MTTD8 colspan= "3">
+										 1
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">
+										 0
+									</td>
+									
+									<td align=left  class=MTTD8 colspan= "3">							   
+										 0
+									</td>
+									</tr>				
+	   			
+						<tr class="child">			
+						<td> <td class="MTTD8" align="center"><b>Average :</b></td> </td>
+						
+						<td class=MTTD8 align="center"><b>75.85</b></td>					
+						</tr> 
+						</table>
+				
+	
+
+
+
+
+
+
+
+	
+   	
+<table border="0" align="center" cellpadding="0" style="width:100%;" class="maintable" id="table2">
+				<tr class="parent" title="Please Click Here To View The Content">
+				<td class="MTTD1" align="center" colspan="2"><b><u>Subject Teacher List</u></b></td>
+				</tr>
+				<tr class="child">				
+				<td class="MTTD8" align="center"><b>Subject</b></td>
+				<td class="MTTD8" align="center"><b>Teacher(s)</b></td>
+				</tr>
+					
+					
+				<tr class="child">				
+				<td class="MTTD2">Not Applicable</td>
+				<td class="MTTD2">MAYUR SUBHASH CHAVAN - Class Teacher</td>
+				</tr>
+					
+					
+				<tr class="child">				
+				<td class="MTTD2">CE-THEORY OF COMPUTATION-TH</td>
+				<td class="MTTD2">-</td>
+				</tr>
+					
+					
+				<tr class="child">				
+				<td class="MTTD2">CE-THEORY OF COMPUTAITON-TH</td>
+				<td class="MTTD2">DIPALI DATTATRAY KADAM</td>
+				</tr>
+					
+					
+				<tr class="child">				
+				<td class="MTTD2">CE-DATABASE MANAGEMENT SYSTEMS-TH</td>
+				<td class="MTTD2">VIRENDRA VISHNUDAS BAGADE</td>
+				</tr>
+					
+					
+				<tr class="child">				
+				<td class="MTTD2">CE-SOFTWARE ENGINEERING & PROJECT MANAGEMENT-TH</td>
+				<td class="MTTD2">YOGESH ASHOK HANDGE</td>
+				</tr>
+					
+					
+				<tr class="child">				
+				<td class="MTTD2">CE-INFORMATION SYSTEMS AND ENGINEERING ECONOMICS-TH</td>
+				<td class="MTTD2">MANISH RAVINDRA JANSARI</td>
+				</tr>
+					
+					
+				<tr class="child">				
+				<td class="MTTD2">CE-COMPUTER NETWORKS-TH</td>
+				<td class="MTTD2">MAYUR SUBHASH CHAVAN</td>
+				</tr>
+					
+					
+				<tr class="child">				
+				<td class="MTTD2">CE-SKILLS DEVELOPMENT LAB-PR</td>
+				<td class="MTTD2">PARAG JAYGOPAL JAMBHULKAR , PUJASHREE SATISH VIDAP , SNEHAL PARAG SHINTRE</td>
+				</tr>
+					
+					
+				<tr class="child">				
+				<td class="MTTD2">CE-DBMSL-PR</td>
+				<td class="MTTD2">DEEPAK TATYASAHEB MANE , PAVAN RAMLAL JAISWAL , RATNAMALA KUMAR SUDHIR PASWAN , VIRENDRA VISHNUDAS BAGADE</td>
+				</tr>
+					
+					
+				<tr class="child">				
+				<td class="MTTD2">CE-CNL-PR</td>
+				<td class="MTTD2">HEMLATA PRASHANT CHANNE , MAYUR SUBHASH CHAVAN , PREETI ANAND JAIN</td>
+				</tr>
+					
+					
+				<tr class="child">				
+				<td class="MTTD2">CE-SKILLS DEVELOPMENT-TUT</td>
+				<td class="MTTD2">SNEHAL PARAG SHINTRE</td>
+				</tr>
+
+</table><br>  	
+
+<h3><span><a href="#section3">&nbsp;&nbsp;</a></span></h3>
+<div>
+<table align="center" cellpadding="0" style="width:100%"  class="maintable" >
+<tr><td>
+<table border="0" align="center" cellpadding="0" style="width:100%;" class="maintable" id="table3">
+<tr class="parent" title="Please Click Here To View The Content">
+<td class="MTTD1" align="center" colspan="5"><b><u>Unit Test Marks</u></b></td>
+</tr>
+<tr class="child" >
+<td class="MTTD8" align="center" ><b>Subject</b></td>	
+
+			<td class="MTTD8" align="center" width="20%"><b>UnitTest-1</b></td>	
+			
+			<td class="MTTD8" align="center" width="20%"><b>UnitTest-2</b></td>	
+			</tr>
+		<tr class="child">				
+				<td class="MTTD2">CE-SKILLS DEVELOPMENT LAB-PR</td>		
+		<td class="MTTD8" align="center">-</td><td class="MTTD8" align="center">-</td></tr>
+		<tr class="child">				
+				<td class="MTTD2">CE-COMPUTER NETWORKS-TH</td>		
+		<td class="MTTD8" align="center">-</td><td class="MTTD8" align="center">-</td></tr>
+		<tr class="child">				
+				<td class="MTTD2">CE-DATABASE MANAGEMENT SYSTEMS-TH</td>		
+		<td class="MTTD8" align="center">-</td><td class="MTTD8" align="center">-</td></tr>
+		<tr class="child">				
+				<td class="MTTD2">CE-THEORY OF COMPUTAITON-TH</td>		
+		<td class="MTTD8" align="center">-</td><td class="MTTD8" align="center">-</td></tr>
+		<tr class="child">				
+				<td class="MTTD2">CE-INFORMATION SYSTEMS AND ENGINEERING ECONOMICS-TH</td>		
+		<td class="MTTD8" align="center">-</td><td class="MTTD8" align="center">-</td></tr>
+		<tr class="child">				
+				<td class="MTTD2">CE-SOFTWARE ENGINEERING & PROJECT MANAGEMENT-TH</td>		
+		<td class="MTTD8" align="center">-</td><td class="MTTD8" align="center">-</td></tr>
+		<tr class="child">				
+				<td class="MTTD2">CE-CNL-PR</td>		
+		<td class="MTTD8" align="center">-</td><td class="MTTD8" align="center">-</td></tr>
+		<tr class="child">				
+				<td class="MTTD2">CE-DBMSL-PR</td>		
+		<td class="MTTD8" align="center">-</td><td class="MTTD8" align="center">-</td></tr>
+		<tr class="child">				
+				<td class="MTTD2">CE-SKILLS DEVELOPMENT-TUT</td>		
+		<td class="MTTD8" align="center">-</td><td class="MTTD8" align="center">-</td></tr>
+		<tr class="child">				
+				<td class="MTTD2">CE-THEORY OF COMPUTATION-TH</td>		
+		<td class="MTTD8" align="center">-</td><td class="MTTD8" align="center">-</td></tr>
+</table><br>  	
+</td></tr>
+</table>
+</div>
+
+
+
+				
+   	  	
+
+
+	
+   
+  	
+
+
+
+
+
+</div>			
+<table width=500 align=center>
+					<!--
+				<tr>	
+				<td class="MTTD8" style="border:0" align=center>
+				 <a style="cursor:hand" href="JavaScript:openNewWindowFormat('/DCWeb/form/jsp_feesreport/StudentDateWiseFeeCollectionReport.jsp?users=C2K17207238$Shadab Majid Shaikh$C2K17207238$(Last class attended :TE COMP SEM 1-III-ENGLISH)$3367$AD 2016-17 OPEN$37$13$21&Academic_select=30');" tabindex=16 >  
+				 
+				<b><font color=blue>View Fee Payment Details</font></b></a>	               
+				</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</tr> -->
+				
+			<!-- <tr>	
+			<td class="MTTD8" style="border:0" align=center> 
+			<a style="cursor:hand" href="JavaScript:openNewWindowFormat('/DCWeb/form/jsp_result/Reports/AcademicProgressOfStudent.jsp?enrollment_no=C2K17207238&studName=Shadab Majid Shaikh');" tabindex=16 >
+			<b><font color=blue>View Student Academic Progress</font></b></a>	               
+			</td>
+			</tr> -->
+
+			</table>  	
+			<div style="height: 10%;">
+			&nbsp;<br>	<br>	<br>	<br>	<br>	<br>
+			</div>
+		
+			
+			 
+
+	</form>
+				 
+			</body>
+            </html>
+  
+ 
+ 
